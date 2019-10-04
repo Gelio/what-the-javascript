@@ -1,0 +1,20 @@
+{
+  "name": "what-the-javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Gelio/what-the-javascript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Gelio/what-the-javascript/issues"
+  },
+  "homepage": "https://github.com/Gelio/what-the-javascript#readme"
+}
