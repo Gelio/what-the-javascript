@@ -1,53 +1,41 @@
-const foo = {
-  counter: 1,
-  add: function(value) {
-    this.counter += value;
-    console.log(this);
-  }
+const counterState = {
+  counter: 1
 };
 
-foo.add(1);
+function addToCounter(value) {
+  console.log(this);
+  this.counter += value;
+}
+
+// Attaching properties
+counterState.addToCounter = addToCounter;
+counterState.addToCounter(5);
+delete counterState.addToCounter;
+
+// Safely attaching properties (ES6 only)
+const addToCounterSymbol = Symbol('add to counter');
+counterState[addToCounterSymbol] = addToCounter;
+counterState[addToCounterSymbol](5);
+delete counterState[addToCounterSymbol];
 
 // call, apply
 
-const newCounterState = {
-  counter: 5
-};
-
-foo.add.call(newCounterState, 1);
-foo.add.apply(newCounterState, [1]);
+addToCounter.call(counterState, 1);
+addToCounter.apply(counterState, [1]);
 
 // bind
 
-const bar = {
-  counter: 1,
-  add: function(value) {
-    this.counter += value;
-    console.log(this);
-  }
-};
+const addToCounterState = addToCounter.bind(counterState);
 
-bar.add = bar.add.bind(bar);
+addToCounterState(5);
 
-bar.add(1);
-
-const addToBar = bar.add;
-addToBar(1); // still works
-
-bar.add.call({ counter: 500 }, 1);
-bar.add.call(null, 1);
+// Those do not modify `counterState`
+addToCounterState.call({ counter: 500 }, 1);
+addToCounterState.call(null, 1);
 
 // partial application
 
-const baz = {
-  counter: 1,
-  add: function(value) {
-    this.counter += value;
-    console.log(this);
-  }
-};
+const incrementCounterState = addToCounterState.bind(counterState, 1);
 
-const incrementBaz = baz.add.bind(baz, 1);
-
-incrementBaz();
-incrementBaz(500);
+incrementCounterState();
+incrementCounterState(500); // still only adds 1

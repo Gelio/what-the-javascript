@@ -17,4 +17,5 @@ console.log(window.foo); // 1
 const baz = 1;
 let abc = 2;
 
-console.log(window.baz, window.abc); // undefined, undefined
+console.log(window.baz); // undefined
+console.log(window.abc); // undefined

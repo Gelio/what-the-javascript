@@ -1,12 +1,16 @@
 // valueOf
-const foo = {
+const counterState = {
   counter: 0,
   valueOf: function() {
     return ++this.counter;
   }
 };
 
-console.log(foo == 1, foo == 2, foo == 3, Number(foo), Number(foo));
+console.log(counterState == 1); // true
+console.log(counterState == 2); // true
+console.log(counterState == 3); // true
+console.log(Number(counterState)); // 4
+console.log(Number(counterState)); // 5
 
 // toString
 const bar = {
@@ -17,4 +21,8 @@ const bar = {
   }
 };
 
-console.log(bar == 'a', bar == 'aa', bar == 'aaa', String(bar), String(bar));
+console.log(bar == 'a'); // true
+console.log(bar == 'aa'); // true
+console.log(bar == 'aaa'); // true
+console.log(String(bar)); // aaaa
+console.log(String(bar)); // aaaaa

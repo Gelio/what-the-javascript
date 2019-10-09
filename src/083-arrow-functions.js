@@ -24,9 +24,6 @@ const literalInstance = {
   increment: () => {
     this.counter++;
     // does not work - this is bound to the outer context (`window`), not `literalInstance`
-  },
-  delayedLog: () => {
-    setTimeout(() => console.log(this.counter), 500);
   }
 };
 

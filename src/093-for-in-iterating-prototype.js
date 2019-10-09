@@ -23,4 +23,21 @@ console.log(getAllObjectKeys(counter)); // ['value', 'increment']
 console.log(Object.keys(counter)); // ['value']
 
 // or use Object.prototype.hasOwnProperty.call(obj, propertyName)
+
+function getAllObjectKeys(obj) {
+  const keys = [];
+
+  for (let propertyName in obj) {
+    if (Object.prototype.hasOwnProperty.call(obj, propertyName)) {
+      keys.push(propertyName);
+    }
+
+    obj.hasOwnProperty(propertyName);
+  }
+
+  return keys;
+}
+null;
+undefined;
+
 // Bonus question: why `Object.prototype.hasOwnProperty.call` instead of `obj.hasOwnProperty(...)`

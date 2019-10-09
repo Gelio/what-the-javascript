@@ -5,18 +5,18 @@ function foo() {
   delete this.a;
 }
 
-foo(); // logs: window
+counterState(); // logs: window
 
 //
 
 (function() {
   'use strict'; // applies only for functions **defined** in strict-mode
 
-  foo();
+  counterState(); // logs: window
 
   function bar() {
     console.log(this);
   }
 
-  bar();
+  bar(); // logs: undefined
 })();

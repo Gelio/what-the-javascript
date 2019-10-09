@@ -14,6 +14,10 @@ while (true) {
 
 // Override `lastIndex` to start matching from a specific index
 
+const pattern = /a+b+/g;
+
+const text2 = 'aabbababaaaaaaabbbbbb';
+
 pattern.lastIndex = 5;
 
-console.log(pattern.exec(text2)[0], pattern.lastIndex);
+console.log(pattern.exec(text2)[0], pattern.lastIndex); // ab, 8

@@ -14,4 +14,4 @@ function returnInCatchAndFinally() {
   }
 }
 
-returnInCatchAndFinally();
+returnInCatchAndFinally(); // 2

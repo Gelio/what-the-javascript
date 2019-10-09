@@ -26,11 +26,11 @@ function example2(undefined) {
 function example3(undefined) {
   console.log('Overwriting undefined');
   undefined = true;
-  console.log({ undefined });
+  console.log({ undefined }); // { undefined: true }
 
   console.log('Restoring undefined');
   undefined = void 0;
-  console.log({ undefined });
+  console.log({ undefined }); // { undefined: undefined }
 }
 
 console.log('Example 1');

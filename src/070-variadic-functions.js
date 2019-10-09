@@ -1,5 +1,8 @@
+es5Sum(1, 2); // 3
+es5Sum(1, 2, 3, 4, 5, 6, 7); // 28
+
 function es5Sum() {
-  const result = 0;
+  let result = 0;
 
   for (let i = 0; i < arguments.length; i++) {
     result += arguments[i];
@@ -9,6 +12,21 @@ function es5Sum() {
 }
 
 // arguments is not a valid array. Array.from(arguments) is
+
+function invalidUse() {
+  arguments.forEach(x => {
+    // TypeError: arguments.forEach is not a function
+  });
+}
+
+function validUse() {
+  Array.from(arguments).forEach(x => {
+    // ...
+  });
+}
+
+//
+
 // arguments.callee
 
 // the rest syntax`

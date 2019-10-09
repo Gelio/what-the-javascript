@@ -1,12 +1,12 @@
-console.log('test before patching');
+console.log('test before patching'); // test before patching
 
 const originalLog = console.log;
 
 console.log = function(...args) {
-  return originalLog.call(this, new Date(), ...args);
+  return originalLog.call(this, 'patched log', ...args);
 };
 
-console.log('test after patching');
+console.log('test after patching'); // patched log test after patching
 
 // Adding functionality to existing objects
 
